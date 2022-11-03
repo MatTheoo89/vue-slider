@@ -40,6 +40,21 @@ createApp({
   },
   methods: {
     // !funzioni
+    changeImg(index){
+      this.activeImage = index;
+    },
+    nextPrev(isNext){
+      console.log(isNext);
+      
+      isNext ? this.activeImage++ : this.activeImage--;
+      
+      if(this.activeImage === this.movies.length){
+        this.activeImage = 0;
+      }
+      else if(this.activeImage < 0){
+        this.activeImage = this.movies.length - 1
+      }
+    }
   },
   mounted(){ 
     // ! da far partire al montaggio

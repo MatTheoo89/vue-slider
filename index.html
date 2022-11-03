@@ -10,17 +10,16 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="app">
 
-    <div class="main-wrapper">
+    <div id="app" class="main-wrapper">
 
       <div class="slider">
 
         <div class="slider-image-container">
 
-          <div  v-for="movie in movies" class="slider-image">
+          <div  class="slider-image">
             
-            <img :src="movie.image" :alt="'Poster ' + movie.title">
+            <img :src="movies[activeImage].image" :alt="'Poster ' + movies[activeImage].title">
 
           </div>
           
@@ -30,17 +29,19 @@
         
         <div class="slider-thumbnails">
 
-          <div  v-for="(movie, indice) in movies" class="thumb" :class="{'active' : indice = activeImage}">
-            <img :src="movie.image" :alt="'Poster ' + movie.title">
-          </div>
+          <div  v-for="(movie, indice) in movies" class="thumb" :class="{'active' : indice === activeImage}" @click="changeImg(indice)">
+            
+          <img :src="movie.image" :alt="'Poster ' + movie.title">
+          
+        </div>
 
         </div>
 
         <div class="button">
 
-          <i id="btn-prev" class="fa-solid fa-arrow-left btn-prev"></i>
+          <i @click="nextPrev(false)" class="fa-solid fa-arrow-left btn-prev"></i>
 
-          <i id="btn-next" class="fa-solid fa-arrow-right btn-next"></i>
+          <i @click="nextPrev(true)" class="fa-solid fa-arrow-right btn-next"></i>
 
         </div>
 
@@ -48,7 +49,6 @@
     
     </div>
 
-  </div>
   
   
 
