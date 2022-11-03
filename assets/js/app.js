@@ -54,10 +54,13 @@ createApp({
       else if(this.activeImage < 0){
         this.activeImage = this.movies.length - 1
       }
-    }
+    },
   },
   mounted(){ 
     // ! da far partire al montaggio
+    setInterval(() =>{
+      this.nextPrev(true);
+    }, 3000);
   },
   created(){
     // ! da far partire alla creazione
