@@ -1,6 +1,7 @@
 console.log('collegato ok');
 
 const {createApp} = Vue;
+let loop;
 
 createApp({
   data(){
@@ -58,7 +59,7 @@ createApp({
   },
   mounted(){ 
     // ! da far partire al montaggio
-    setInterval(() =>{
+    loop = setInterval(() =>{
       this.nextPrev(true);
     }, 3000);
   },
