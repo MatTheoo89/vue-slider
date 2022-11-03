@@ -37,6 +37,7 @@ createApp({
         },
       ],
       activeImage: 0,
+      autoPlay: null,
     }
   },
   methods: {
@@ -56,12 +57,18 @@ createApp({
         this.activeImage = this.movies.length - 1
       }
     },
+    Loop(){
+      this.autoPlay = setInterval(() =>{
+        this.nextPrev(true);
+      }, 3000)
+    },
+    stopLoop(){
+      clearInterval(this.autoPlay)
+    }
   },
   mounted(){ 
     // ! da far partire al montaggio
-    loop = setInterval(() =>{
-      this.nextPrev(true);
-    }, 3000);
+    this.Loop();
   },
   created(){
     // ! da far partire alla creazione

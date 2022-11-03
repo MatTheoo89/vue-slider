@@ -13,7 +13,7 @@
 
     <div id="app" class="main-wrapper">
 
-      <div class="slider" onmouseenter="clearInterval(loop)">
+      <div class="slider" @mouseover="stopLoop()" @mouseleave="Loop()">
 
         <div class="slider-image-container">
 
